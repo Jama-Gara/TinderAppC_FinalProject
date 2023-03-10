@@ -75,7 +75,7 @@
       <p class="favourites-card-description">
         <span>Liked</span>
       </p>
-      <a href="chat.html" class="favourites-message-button"><img class="favourites-message-button-icon" src="./img/mail-icon.svg" alt="mail icon">Message</a>
+      <a href="chat" class="favourites-message-button"><img class="favourites-message-button-icon" src="./img/mail-icon.svg" alt="mail icon">Message</a>
       <form th:data-user-id="${user.id}" th:action="@{/favorites/remove}" method="post">
         <input type="hidden" name="userId" th:value="${user.id}" />
         <input type="hidden" name="status" value="liked" />

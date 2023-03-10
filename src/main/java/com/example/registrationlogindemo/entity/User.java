@@ -22,7 +22,6 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(name = "user_id")
     private Long id;
-
     @NotBlank(message = "Username is required")
     @Column(name = "firstname", unique = true)
     private String firstname;
