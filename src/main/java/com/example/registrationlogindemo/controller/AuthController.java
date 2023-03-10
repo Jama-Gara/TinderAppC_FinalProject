@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @Controller
 public class AuthController {
-    private UserService userService;
-    private UserServiceImpl userServiceImpl;
-
-
     @RequestMapping("mainpage")
     public String mainpage() {
         return "mainpage";

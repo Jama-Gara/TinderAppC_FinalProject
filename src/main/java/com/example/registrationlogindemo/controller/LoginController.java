@@ -27,7 +27,6 @@ public class LoginController {
         return "forgot-password";
     }
 
-
     @GetMapping("/login")
     public String showLoginForm() {
         return "login";
@@ -42,7 +41,6 @@ public class LoginController {
         log.info(userService.findByEmail(email).getEmail());
         log.info(password);
         log.info(userService.findByEmail(email).getPassword());
-//      log.info("girildi post " +  passwordEncoder.encode(password));
         if (isAuthenticated) {
             Long id = userService.findByEmail(email).getId();
             String username = userService.findByEmail(email).getFirstname();
@@ -69,11 +67,8 @@ public class LoginController {
         } else {
             log.info("Error");
             return new RedirectView("login");
-    //           "/login?error=true"
         }
     }
-
-
 
     @PostMapping("/logout")
     public String logout(HttpServletRequest request) {

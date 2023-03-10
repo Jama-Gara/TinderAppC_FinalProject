@@ -18,9 +18,6 @@ import java.util.List;
 
 @Controller
 public class HomeController {
-    @Autowired
-    private UserRepository userRepository;
-
     @GetMapping("user")
     public String showLoginForm() {
         return "user";
@@ -29,7 +26,6 @@ public class HomeController {
     public String submitDate(@RequestParam("date") String dateStr) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate selectedDate = LocalDate.parse(dateStr, formatter);
-        System.out.println(selectedDate);
         return "redirect:/user";
     }
 
@@ -37,7 +33,6 @@ public class HomeController {
     public String showHomePage(HttpSession session) {
         User user = (User) session.getAttribute("user");
         if (user != null) {
-            System.out.println("test4");
             return "redirect:/mainpage";
         } else {
             return "redirect:/login";

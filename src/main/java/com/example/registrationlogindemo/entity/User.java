@@ -98,20 +98,3 @@ public class User implements Serializable {
     }
 }
 
-
-//    @ManyToMany(cascade = { CascadeType.ALL })
-//    @JoinTable(
-//            name = "favorites",
-//            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-//            inverseJoinColumns = { @JoinColumn(name = "favorite_id", referencedColumnName = "id"), @JoinColumn(name = "user_id", referencedColumnName = "user_id") }
-//    )
-//    private Set<Favorites> favorites = new HashSet<>();
-
-//    @OneToMany(mappedBy = "user")
-//    private Set<Favorites> favorites = new HashSet<>();
-
-//    @OneToMany(mappedBy = "likedById", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Favorites> likedUsers = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "likedUserId", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Favorites> likedByUsers = new ArrayList<>();

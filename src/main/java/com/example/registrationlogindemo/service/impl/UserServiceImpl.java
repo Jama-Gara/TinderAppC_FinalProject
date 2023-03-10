@@ -3,12 +3,14 @@ package com.example.registrationlogindemo.service.impl;
 import com.example.registrationlogindemo.dto.UserDto;
 import com.example.registrationlogindemo.entity.Role;
 import com.example.registrationlogindemo.entity.User;
+import com.example.registrationlogindemo.enums.Gender;
 import com.example.registrationlogindemo.repository.RoleRepository;
 import com.example.registrationlogindemo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Optional;
@@ -56,6 +58,10 @@ public class UserServiceImpl implements UserServiceIn {
             String surName = userDto.getSurname();
             String nickName = userDto.getNickname();
             String location = userDto.getLocation();
+            String gender = userDto.getGender();
+            String dateOfBirth = userDto.getBirthday();
+            String userInfo = userDto.getUserInfo();
+
 
             if (firstName != null && !firstName.isEmpty()) {
                 user.setFirstname(firstName);
@@ -68,6 +74,16 @@ public class UserServiceImpl implements UserServiceIn {
             }
             if (location != null && !location.isEmpty()){
                 user.setLocation(location);
+            }
+
+            if (gender != null && !gender.isEmpty()){
+                user.setGender(Gender.valueOf(gender));
+            }
+            if (dateOfBirth != null && !dateOfBirth.isEmpty()){
+                user.setBirthday(LocalDate.parse(dateOfBirth));
+            }
+            if (userInfo != null && !userInfo.isEmpty()){
+                user.setUserInfo(userInfo);
             }
 //            String birthday = String.valueOf(userDto.getBirthday());
 //            System.out.println(birthday);

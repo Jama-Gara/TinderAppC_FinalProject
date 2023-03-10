@@ -49,33 +49,21 @@ public class MessageController {
                 .map(f -> f.getLikedUser())
                 .collect(Collectors.toSet());
 
-//        User likedUsers = model.addAttribute("likedUsers", likedUsers);
         String receiver = userService.findByEmail(likedUsers.stream().findFirst().get().getEmail()).getEmail();
         System.out.println("test receiver id");
 
 
-//        receiverId = reciver.getId();
-
         if (sender != null) {
             model.addAttribute("sender", sender);
-//            model.addAttribute("receiver", reciver);
             model.addAttribute("receiver",receiver);
             System.out.println(receiver);
             String username = (String) session.getAttribute("username"); // retrieve the username from the session
             model.addAttribute("username", username);
-//            System.out.println(receiver);
-//            System.out.println(username);
-//
-//            String userId = (String) session.getAttribute("userId"); // retrieve the userId from the session
-//            model.addAttribute("userId", userId);
-//
-//            System.out.println(userId);
 
             return "chat";
         }
         return "chat";
     }
-
 
 
     @PostMapping("/chat")

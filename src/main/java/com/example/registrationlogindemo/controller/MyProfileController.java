@@ -38,10 +38,6 @@ public class MyProfileController {
         String userInfo = (String) session.getAttribute("userInfo");
         model.addAttribute("userInfo", userInfo);
 
-        //        String birthday = (String) session.getAttribute("birthday");
-        //        model.addAttribute("birthday", birthday);
-        //        String gender = (String) session.getAttribute("gender");
-        //        model.addAttribute("gender", gender);
         return "my-profile";
     }
     @PostMapping("/my-profile/save")
