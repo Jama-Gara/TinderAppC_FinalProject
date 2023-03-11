@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinder: My Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/my-profile.css">
+</head>
+<body>
+
+<header class="main-header">
+    <a href="mainpage" class="main-header-logo"><img src="./img/iba-tech-logo-white.svg" alt="IBA Tech Academy"></a>
+    <div class="main-header-wrapper">
+        <label class="main-header-search-wrapper">
+            <input type="search" class="main-header-search" placeholder="Add new profile">
+            <img src="./img/search-icon.svg" alt="Search Icon">
+        </label>
+        <div class="main-header-profile-wrapper">
+            <div class="main-header-profile-credentials">
+                <span class="main-header-profile-welcome">
+                    <h1>Welcome, [[${username}]]!</h1>
+                </span>
+            </div>
+            <img class="main-header-user-icon" src="./img/user-icon-with-background.svg" alt="User Icon">
+            <div class="hidden-accordion-wrapper">
+                <ul class="hidden-accordion">
+                    <li class="hidden-accordion-item"><a href="./my-profile" class="hidden-accordion-item-link">
+                        <img class="hidden-accordion-item-image" src="./img/user-icon-gray.svg" alt="User Icon">Profile</a>
+                    </li>
+                    <li class="hidden-accordion-item">
+                        <a href="favourites.html" class="hidden-accordion-item-link">
+                            <img class="hidden-accordion-item-image" src="./img/favourite-icon.svg" alt="Favourite Icon">Favourites</a>
+                    </li>
+                    <li class="hidden-accordion-item"><a href="#" class="hidden-accordion-item-link">
+                        <img class="hidden-accordion-item-image" src="./img/message-icon.svg" alt="Message Icon">
+                        Chat</a></li>
+                    <li class="hidden-accordion-item">
+                        <form method="post" action="/logout">
+                            <input class="hidden-accordion-item-image"
+                                   src="img/log-out-icon.svg"
+                                   type="submit"
+                                   value="Logout"
+                                   alt="Log Out Icon"
+                                   href="/logout">
+                        </form>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="profile">
+        <h2 class="profile-title">Profile</h2>
+    </div>
+
+    <form method="post" th:action="@{/my-profile-change-pass/savePass}">
+        <div class="profile-description-wrapper">
+            <div class="container">
+                <div class="profile-wrapper">
+                    <div class="profile-description">
+                        <img class="profile-description-image" src="./img/sample-user-avatar.png" alt="Sample User Avatar">
+                        <div class="profile-description-wrapper">
+                            <div class="profile-description-container">
+                                <div class="profile-description-container-wrapper">
+                                    <label class="profile-description-container-label">
+                                        <input class="profile-description-pass-input"
+                                               type="password"
+                                               placeholder="Old password"
+                                               id="oldPassword" name="oldPassword" required>
+                                    </label>
+                                    <a href="#" class="profile-description-container-input-edit">
+                                        Edit <img src="./img/edit-icon.svg" class="profile-description-container-input-edit-icon"
+                                                  alt=""></a>
+                                </div>
+                                <div class="profile-description-container-wrapper">
+                                    <label class="profile-description-container-label">
+                                        <input class="profile-description-pass-input"
+                                               type="password"
+                                               placeholder="New password"
+                                               id="newPassword" name="newPassword" required>
+                                    </label>
+                                    <a href="#" class="profile-description-container-input-edit">
+                                        Edit <img src="./img/edit-icon.svg" class="profile-description-container-input-edit-icon"
+                                                  alt=""></a>
+                                </div>
+                                <div class="profile-description-container-wrapper">
+                                    <label class="profile-description-container-label">
+
+                                        <input class="profile-description-pass-input"
+                                               type="password"
+                                               placeholder="Confirm new password"
+                                               id="confirmPassword" name="confirmPassword" required>
+
+                                    </label>
+                                    <a href="#" class="profile-description-container-input-edit">
+                                        Edit <img src="./img/edit-icon.svg" class="profile-description-container-input-edit-icon"
+                                                  alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="profile-description-tab-pass">
+                                <a href="my-profile"><p>Information</p></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <button class="save-button" type="submit" th:text="Save"
+                        value="save">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+<script src="js/my-profile.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+</body>
+</html>
+
